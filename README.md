@@ -5,7 +5,7 @@
 
 
 
-```sh
+```
 # 拉取项目
 git clone https://github.com/suanju/electron-vue-template/
 
