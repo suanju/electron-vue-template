@@ -3,18 +3,30 @@ import { app, BrowserWindow } from 'electron'
 
 const url = process.env['VITE_DEV_SERVER_URL']
 
+let win : BrowserWindow | null
 const createWindow = () => {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 1200,
-    height: 800
+    height: 800,
+    webPreferences: {
+      contextIsolation: false,
+      nodeIntegration: true,
+      preload : join(__dirname, './preload.js')
+    },
   })
 
   if(url){
     win.loadURL(url)
   }else{
-    win.loadFile(join(process.env.DIST as string,"index.html"))
+    win.loadFile(join(join(__dirname, '../dist'),"index.html"))
   }  
 }
+
+app.on('window-all-closed', () => {
+  win = null
+  app.quit()
+})
+
 
 app.whenReady().then(() => {
   createWindow()
