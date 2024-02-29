@@ -14,8 +14,5 @@ export default defineConfig({
         input: 'electron/preload.ts',
       }
     }),
-  ],
-  server: {
-    port: 8091
-  }
+  ]
 })
