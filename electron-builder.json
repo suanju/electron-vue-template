@@ -1,0 +1,8 @@
+{
+    "appId": "com.example.openmoretelegram",
+    "productName": "open-more-telegram",
+    "directories": {
+      "output": "release"
+    }
+  }
+    
